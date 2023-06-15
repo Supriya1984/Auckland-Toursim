@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Newzealand</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <!-- CSS -->
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' >
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+ 
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        type="text/css">
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--header -->
+   <header>
+    <p class="border-header"></p>
+    <nav>
+    <div class="nav">
+    <div class="nav-img"></div>
+    <div class="openMenu">
+        <div class="openMenu__fa openMenu__fa-bars">
+            <span class="openMenu__bar"></span>
+            <span class="openMenu__bar"></span>
+            <span class="openMenu__bar"></span>
+    
+        </div>
+    </div>
+    <ul class="mainMenu">
+        <li><a href="">Things to do</a></li>
+        <li><a href="">Transport</a></li>
+        <li><a href="">Accommodation</a></li>
+        <li><a href="">About New Zealand</a></li>
+        <li><a href="">Travel deals</a></li>
+        <li class="fa fa-times"><img class="closeMenu" src="img/icons8-multiply-30.png" alt="close"></li>
+    </ul>
+</div>
+</nav>
+
+
+    <p class="img"></p></header>
+<!--header end -->
+<!--form start-->
+<div class="container1">
+
+    <form action="thank-you.html">
+        <h5>Personal Details</h5>
+        
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your name" id="contact-name" onkeyup="validateName()">
+            <span id="name-error"></span>
+        </div>
+
+        <div class="input-group">
+            <label>Phone No.</label>
+            <input type="tel" placeholder="123 456 7890" id="contact-phone" onkeyup="validatePhone()">
+            <span id="phone-error"></span>
+        </div>
+
+        <div class="input-group">
+            <label>Email Id</label>
+            <input type="email" placeholder="Enter Email" id="contact-email" onkeyup="validateEmail()">
+            <span id="email-error"></span>
+        </div>
+        <div class="col-md-8 mt-4 form2">
+           <div class="inner-box">
+            <h5>Accomodation Details &#8211;</h5>
+            <div class="button1_map"> <a href="#" id="map-box">View Map &#187;</a></div>
+        </div>
+        <!--map popup start-->
+        
+        <div id="my-map" class="modal_map">
+            <div class="modal-content_map">
+               
+            <div id='map'></div>
+               <span class="close_map">&times;</span>
+            </div>
+        </div>
+        <!--map popup end-->
+    <!--hotel booking-->
+            <p class="booking">for Hotel 1-2 people <span>($157/night - min 1 night, max 5 nights)</span></p>
+            
+                <div class="date">
+                    <div class="checkin">
+                        <label><img src="img/calender-icon.png" alt="Check In"> Check In</label>
+                        <input type="text" placeholder="YY-MM-DD" class="form-control datepicker mr-2" id="fromdate"
+                            onkeyup="validateDateIn()" >
+                        <span id="datein-error"></span>
+                    </div>
+                    <div class="checkout"><label><img src="img/calender-icon.png" alt="Check Out"> Check Out</label>
+                        <input type="text" placeholder="YY-MM-DD" class="form-control datepicker" id="todate" >
+                    </div>
+                    <div class="number">
+                        <label><img src="img/people-icon.png" alt="Number of People"> Number of People</label>
+                        <input placeholder="Total number of people" class="form-control mr-2" id="contact-people"
+                            onkeyup="validatePeople()">
+                        <span id="people-error"></span>
+                    </div>
+                </div>
+
+                
+
+                <div class="btn-flex">
+               <div> <input type="button" class="btn btn-primary m-2 cal-btn" value="Calculate Total Cost" id="calculate"><span
+                  id="result"></span></div>
+                <div class="button1"> <a href="#" id="modal-btn">View more details &#187;</a></div>
+                </div>
+
+           
+
+
+            <!--hotel booking end-->
+            <!--popup start hotel-->
+            
+            <div id="my-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div id="language-wrapper">
+                        <a class="language-icon fr" href="#" onclick="toggle('language-dropdown');">Meal Options</a>
+                        <ul id="language-dropdown" tabindex="0">
+                            <li class="language-links">Breakfast : 7:30am - 10:30am</li>
+                            <li>Steel Cut Oatmeal</li>
+                            <li>Cheddar Chive Pancakes</li>
+                            <li>Smoked Salmon Bagel Sandwhich</li>
+                            <li>French Toast and Egggs</li>
+                                
+                          
+                            <li class="language-links">Lunch : 12pm - 2:30pm </li>
+                                
+                                    <li>Beef Curry</li>
+                                    <li>Beef Korma</li>
+                                    <li>Vegetable Korma</li>
+                                    <li>Chicken Biryani</li>
+                               
+                           
+                            <li class="language-links">Dinner : 5pm - 8pm</li>
+    
+                                    <li>Hyderabadi Chicken</li>
+                                    <li>Chicken RoganJosh with Rice</li>
+                                    <li>Mughali Chicken</li>
+                                    <li>Dal Makhni with Naan</li>
+                           
+                          
+
+                        </ul> <!-- end of language-dropdown class -->
+                    </div> <!-- end of language-wrapper -->
+                    <p class="extra1">Extra Facilities</p>
+                    <div class="extra-flex">
+                    <ul class="extra">
+                        <li><span><img src="img/kitchen.png" alt="Kitchen"> Kitchen</span></li>
+                        <li>&#10003; Fully equiped kitchen in every room</li>
+                        <li>&#10003; Others features includes gas heating and BBQ</li>
+                        <li><span><img src="img/bathroom.png" alt="Bathroom"> Bathroom</span></li>
+                        <li>&#10003; Toilet / Toilet paper</li>
+                        <li>&#10003; Shower / Hairdryer</li>
+                    </ul>
+                    <ul class="extra">
+                        <li><span><img src="img/boardgame.png" alt="Activities"> Activities</span></li>
+                        <li>&#10003; Board games/ puzzles</li>
+                        <li><span><img src="img/internet.png" alt="internet"> Internet</span></li>
+                        <li>&#10003; WiFi is available in all areas and is free of charge</li>
+                        <li><span><img src="img/safety.png" alt="Safety & security"> Safety & security</span></li>
+                        <li>&#10003; CCTV outside property</li>
+                        <li>&#10003; Smoke alarms</li>
+  
+                    </ul>
+                </div>
+                </div> 
+            </div>
+            <!--popup end hotel-->
+            <!--for hostel booking start-->
+        <p class="booking">for Hostel 1 person <span>($30/night - min 1 night, max 10 nights)</span></p>
+            <div class="date">
+                <div>
+                    <label><img src="img/calender-icon.png" alt="Check In"> Check In</label>
+                    <input type="text" placeholder="YY-MM-DD" class="form-control datepicker mr-2" id="fromdate_hostel"
+                        onkeyup="validateDateHostel()" >
+                    <span id="dateHostel-error"></span>
+                </div>
+                <div class="checkout"><label><img src="img/calender-icon.png" alt="Check Out"> Check Out</label>
+                    <input type="text" placeholder="YY-MM-DD" class="form-control datepicker" id="todate_hostel" >
+                </div>
+                <div class="number">
+                    <label><img src="img/people-icon.png" alt="Number of People"> Number of People</label>
+                    <input placeholder="Total number of people" class="form-control mr-2" id="peopleInHostel"
+                        onkeyup="validatePeopleHostel()">
+                    <span id="peopleHostel-error"></span>
+                </div>
+            </div>
+            
+            
+            <div class="btn-flex">
+                <div><input type="button" class="btn btn-primary m-2 cal-btn" value="Calculate Total Cost" id="calculate_hostel"><span
+                    id="result_hostel"></span></div>
+                <div class="button1"> <a href="#" id="modal-btn1">View more details &#187;</a></div>
+            </div>
+            <!--hostel booking end-->
+            <!--popup start hostel-->
+<div id="my-modal1" class="modal1">
+    <div class="modal-content">
+        <span class="close1">&times;</span>
+        <div id="language-wrapper1">
+            <a class="language-icon fr" href="#" onclick="toggle('language-dropdown1');">Meal Options</a>
+            <ul id="language-dropdown1" tabindex="0">
+                <li class="language-links">Breakfast : 7:00am - 9:30am</li>
+                <li>Mince & Eggs on Toast</li>
+                <li>Smoky Bacon, Potato and Cheddar Hash</li>
+                <li>Baked Eggs with Swiss Chard and Green Olives</li>
+                <li>French Toast and Egggs</li>
+        
+        
+                <li class="language-links">Lunch : 12:30pm - 2:30pm </li>
+        
+                <li>Pie maker zucchini and bacon mini quiches</li>
+                <li>Avocado pesto pasta</li>
+                <li>American-style bbq brisket sub</li>
+                <li>Zucchini and bacon slice</li>
+        
+        
+                <li class="language-links">Dinner : 5:30pm - 8:30pm</li>
+        
+                <li>Cedar-Plank Salmon</li>
+                <li>Braised Chicken Legs With Grapes and Fennel</li>
+                <li>Grilled Pizza</li>
+                <li>Double-Stack Mushroom and Chicken Cheeseburgers</li>
+        
+        
+        
+            </ul> 
+        </div> 
+        <!-- end of language-wrapper -->
+        <p class="extra1">Extra Facilities</p>
+        <div class="extra-flex">
+            <ul class="extra">
+                <li><span><img src="img/bathroom.png" alt="Bathroom"> Bathroom</span></li>
+                <li>&#10003; Toilet / Toilet paper</li>
+                <li>&#10003; Shower / Hairdryer</li>
+                <li><span><img src="img/kitchen.png" alt="Kitchen"> Kitchen</span></li>
+                <li>&#10003; Fully equiped kitchen in every room</li>
+                <li>&#10003; Others features includes gas heating and BBQ</li>
+                </ul>
+            <ul class="extra">
+                <li><span><img src="img/boardgame.png" alt="Activities"> Activities</span></li>
+                <li>&#10003; Board games/ puzzles</li>
+                <li><span><img src="img/internet.png" alt="internet"> Internet</span></li>
+                <li>&#10003; WiFi is available in all areas and is free of charge</li>
+                <li><span><img src="img/tv.png" alt="Entertainment and family services"> Entertainment and family
+                        services</span></li>
+                <li>&#10003; TV and sky in every room </li>
+            </ul>
+        </div>
+    </div>
+</div>
+            <!--popup end hostel-->
+
+            <!--motel booking start-->
+                <p class="booking">for Motel 2-4 people  <span>($90/night - min 3 nights, max 10 nights)</span></p>
+                <div class="date">
+                    <div>
+                        <label><img src="img/calender-icon.png" alt="Check In"> Check In</label>
+                        <input type="text" placeholder="YY-MM-DD" class="form-control datepicker mr-2" id="fromdate_motel"
+                            onkeyup="validateDateMotel()" >
+                        <span id="datemotel-error"></span>
+                    </div>
+                    <div class="checkout"><label><img src="img/calender-icon.png" alt="Check Out"> Check Out</label>
+                        <input type="text" placeholder="YY-MM-DD" class="form-control datepicker" id="todate_motel" >
+                    </div>
+                    <div class="number">
+                        <label><img src="img/people-icon.png" alt="Number of People"> Number of People</label>
+                        <input placeholder="Total number of people" class="form-control mr-2" id="peopleInmotel"
+                            onkeyup="validatePeopleMotel()">
+                        <span id="peoplemotel-error"></span>
+                    </div>
+                </div>
+
+
+                <div class="btn-flex">
+                    <div><input type="button" class="btn btn-primary m-2 cal-btn" value="Calculate Total Cost" id="calculate_motel"><span
+                            id="result_motel"></span></div>
+                    <div class="button1"> <a href="#" id="modal-btn2">View more details &#187;</a></div>
+                </div>
+            <!--motel booking end-->
+            <!--popup start motel-->
+<div id="my-modal2" class="modal2">
+    <div class="modal-content">
+        <span class="close2">&times;</span>
+        <div id="language-wrapper2">
+            <a class="language-icon fr" href="#" onclick="toggle('language-dropdown2');">Meal Options</a>
+            <ul id="language-dropdown2" tabindex="0">
+                <li class="language-links">Breakfast : 8:00am - 10:00am</li>
+                <li>Shirred Eggs with Leeks</li>
+                <li>Soft-scrambled eggs</li>
+                <li>Avocado, Chèvre and Bacon Omelette.</li>
+                <li>Granola with Figs, Almonds and Coconut</li>
+        
+        
+                <li class="language-links">Lunch : 12pm - 2:30pm </li>
+        
+                <li>BLT salad</li>
+                <li>Creamy leek, potato and bacon soup</li>
+                <li>Lemony salmon pasta with spring vegetables and ricotta</li>
+                <li>Chicken and leek pies</li>
+        
+        
+                <li class="language-links">Dinner : 6pm - 7:30pm</li>
+        
+                <li>Quick Potato Gnocchi</li>
+                <li>Broken Lasagna With Parmesan and All the Peas</li>
+                <li>Habanero BBQ Shrimp</li>
+                <li>Caesar Salad Roast Chicken</li>
+        
+        
+        
+            </ul> <!-- end of language-dropdown class -->
+        </div> <!--end of language-wrapper -->
+        <p class="extra1">Extra Facilities</p>
+        <div class="extra-flex">
+            <ul class="extra">
+                <li><span><img src="img/bathroom.png" alt="Bathroom"> Bathroom</span></li>
+                <li>&#10003; Toilet / Toilet paper</li>
+                <li>&#10003; Shower / Hairdryer</li>
+                <li><span><img src="img/kitchen.png" alt="Kitchen"> Kitchen</span></li>
+                <li>&#10003; Fully equiped kitchen in every room</li>
+                <li>&#10003; Others features includes gas heating and BBQ</li>
+                </ul>
+            <ul class="extra">
+                <li><span><img src="img/boardgame.png" alt="Activities"> Activities</span></li>
+                <li>&#10003; Board games/ puzzles</li>
+                <li><span><img src="img/internet.png" alt="internet"> Internet</span></li>
+                <li>&#10003; WiFi is available in all areas and is free of charge</li>
+                <li><span><img src="img/safety.png" alt="Safety & security"> Safety & security</span></li>
+                <li>&#10003; CCTV outside property</li>
+                <li>&#10003; CCTV in common areas</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+            <!--popup end motel-->
+            <!--house booking start-->
+            <p class="booking">for House 1-4 people <span>($240/night - min 2 nights, max 15 nights)</span></p>
+            <div class="date">
+                <div>
+                    <label><img src="img/calender-icon.png" alt="Check In"> Check In</label>
+                    <input type="text" placeholder="YY-MM-DD" class="form-control datepicker mr-2" id="fromdate_house"
+                        onkeyup="validateDateHouse()" >
+                    <span id="datehouse-error"></span>
+                </div>
+                <div class="checkout"><label><img src="img/calender-icon.png" alt="Check Out"> Check Out</label>
+                    <input type="text" placeholder="YY-MM-DD" class="form-control datepicker" id="todate_house" >
+                </div>
+                <div class="number">
+                    <label><img src="img/people-icon.png" alt="Number of People"> Number of People</label>
+                    <input placeholder="Total number of people" class="form-control mr-2" id="peopleInhouse"
+                        onkeyup="validatePeopleHouse()">
+                    <span id="peoplehouse-error"></span>
+                </div>
+            </div>
+            
+            
+            <div class="btn-flex">
+                <div><input type="button" class="btn btn-primary m-2 cal-btn" value="Calculate Total Cost" id="calculate_house"><span
+                        id="result_house"></span></div>
+                <div class="button1"> <a href="#" id="modal-btn3">View more details &#187;</a></div>
+            </div>
+            <!--house booking end-->
+            <!--popup start house-->
+            <div id="my-modal3" class="modal3">
+                <div class="modal-content">
+                    
+                    <span class="close3">&times;
+                       </span>
+                       <div id="language-wrapper3">
+                        <a class="language-icon fr" href="#" onclick="toggle('language-dropdown3');">Meal Options</a>
+                        <ul id="language-dropdown3" tabindex="0">
+                            <li class="language-links">Breakfast : 7:30am - 10:30am</li>
+                            <li>Six-Ingredient Breakfast Quinoa</li>
+                            <li>Norwegian Risgrot Rice Porridge</li>
+                            <li>Smoked Salmon Bagel Sandwhich</li>
+                            <li>French Toast and Egggs</li>
+                    
+                    
+                            <li class="language-links">Lunch : 12:00pm - 3:00pm </li>
+                    
+                            <li>Croque monsieur</li>
+                            <li>Thai chicken salad</li>
+                            <li>Easy spinach and ricotta pies</li>
+                            <li>Salmon rissoles</li>
+                    
+                    
+                            <li class="language-links">Dinner : 5pm - 8pm</li>
+                    
+                            <li>Grilled Coconut Shrimp With Shishito Peppers</li>
+                            <li>Fish Tacos al Pastor</li>
+                            <li>Mast Biryani (Grand Vegetable Biryani)</li>
+                            <li>Seared Scallops With Basil Risotto</li>
+                    
+                    
+                    
+                        </ul> <!-- end of language-dropdown class -->
+                    </div><!-- end of language-wrapper -->
+                    <p class="extra1">Extra Facilities</p>
+                    <div class="extra-flex">
+                        <ul class="extra">
+                            <li><span><img src="img/bathroom.png" alt="Bathroom"> Bathroom</span></li>
+                            <li>&#10003; Toilet / Toilet paper</li>
+                            <li>&#10003; Shower / Hairdryer</li>
+                            <li><span><img src="img/kitchen.png" alt="Kitchen"> Kitchen</span></li>
+                            <li>&#10003; Fully equiped kitchen in every room</li>
+                            <li><span><img src="img/internet.png" alt="internet"> Internet</span></li>
+                            <li>&#10003; WiFi is available in all areas and is free of charge</li>
+                           </ul>
+                        <ul class="extra">
+                            
+                            <li><span><img src="img/safety.png" alt="Safety & security"> Safety & security</span></li>
+                            <li>&#10003; CCTV outside property</li>
+                            <li>&#10003; CCTV in common areas</li>
+                            <li>&#10003; Smoke alarms</li>
+                            <li>&#10003; Key card access</li>
+                        </ul>
+                    </div>
+    
+            </div>
+            </div>
+            <!--popup end house-->
+                            <div class="input-group">
+                                <label>Any other suggestions?</label>
+                                <textarea rows="3" placeholder="Type here..." id="contact-message" onkeyup="validateMessage()"
+                                    maxlength="90"></textarea>
+                                <span id="message-error"></span>
+                            </div>
+            <div>
+                <button onclick="return validateForm()" id="result_form" type="submit" value="submit">Submit</button>
+                <span id="submit-error"></span>
+            </div>
+
+        </div>
+        
+    </form>
+
+</div>
+<!--form end-->
+<script src="javascript.js"></script>
+<!--jquery-->
+<!--datepicker start-->
+<script>
+    
+    $('.datepicker').datepicker({
+        dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        changeYear: true,
+    });
+    //for hotel
+    $(document).on('click', '#calculate', function () {
+        var fromdate = $("#fromdate").val();
+        var todate = $("#todate").val();
+        var contactPeople = $("#contact-people").val(); 
+        var dt1 = new Date(fromdate);
+        var dt2 = new Date(todate);
+
+
+        var time_difference = dt2.getTime() - dt1.getTime();
+        var result = time_difference / (1000 * 60 * 60 * 24);
+        var cost = result * 157;
+        var result1 = contactPeople * cost;
+        var output = "Total cost $" + result1;
+        $("#result").html(output);
+    });
+    //for hostel
+    $(document).on('click', '#calculate_hostel', function () {
+        var fromdate_hostel = $("#fromdate_hostel").val();
+        var todate_hostel = $("#todate_hostel").val();
+        var peopleInHostel = $("#peopleInHostel").val(); 
+        var dt3 = new Date(fromdate_hostel);
+        var dt4 = new Date(todate_hostel);
+
+        var time_difference_hostel = dt4.getTime() - dt3.getTime();
+        var result_hostel = time_difference_hostel / (1000 * 60 * 60 * 24);
+        var cost_hostel = result_hostel * 30;
+        var result1 = peopleInHostel * cost_hostel;
+        var output_hostel = "Total cost $" + result1;
+        $("#result_hostel").html(output_hostel);
+    });
+    //for motel
+    $(document).on('click', '#calculate_motel', function () {
+        var fromdate_motel = $("#fromdate_motel").val();
+        var todate_motel = $("#todate_motel").val();
+        var peopleInmotel = $("#peopleInmotel").val(); 
+        var dt3 = new Date(fromdate_motel);
+        var dt4 = new Date(todate_motel);
+
+        var time_difference_motel = dt4.getTime() - dt3.getTime();
+        var result_motel = time_difference_motel / (1000 * 60 * 60 * 24);
+        var cost_motel = result_motel * 90;
+        var result1 = peopleInmotel * cost_motel;
+        var output_motel = "Total cost $" + result1;
+        $("#result_motel").html(output_motel);
+    });
+    //for house
+    $(document).on('click', '#calculate_house', function () {
+        var fromdate_house = $("#fromdate_house").val();
+        var todate_house = $("#todate_house").val();
+        var peopleInhouse = $("#peopleInhouse").val();
+        var dt3 = new Date(fromdate_house);
+        var dt4 = new Date(todate_house);
+
+        var time_difference_house = dt4.getTime() - dt3.getTime();
+        var result_house = time_difference_house / (1000 * 60 * 60 * 24);
+        var cost_house = result_house * 240;
+        var result1 = peopleInhouse * cost_house;
+        var output_house = "Total cost $" + result1;
+        $("#result_house").html(output_house);
+    });
+    
+</script>
+ <!--datepicker ends-->
+</body>
+</html>

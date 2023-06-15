@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Newzealand</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<header>
+    <p class="border-header"></p>
+    <nav>
+        <div class="nav">
+            <div class="nav-img"></div>
+            <div class="openMenu">
+                <div class="openMenu__fa openMenu__fa-bars">
+                    <span class="openMenu__bar"></span>
+                    <span class="openMenu__bar"></span>
+                    <span class="openMenu__bar"></span>
+
+                </div>
+            </div>
+            <ul class="mainMenu">
+                <li><a href="">Things to do</a></li>
+                <li><a href="">Transport</a></li>
+                <li><a href="">Accommodation</a></li>
+                <li><a href="">About New Zealand</a></li>
+                <li><a href="">Travel deals</a></li>
+                <li class="fa fa-times"><img class="closeMenu" src="img/icons8-multiply-30.png" alt="close"></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <p class="img"></p>
+</header>
+<div class="container1">
+   <p class="thank-you">Thank You for Booking with Us!</p> 
+    <p class="thanku-txt">Thank you for your reservation. We’re dedicated to giving you the best experience possible.</p>
+    <p class="feedback_radio">Feedback Form</p>
+    <!--form starts-->
+<form action="index.html" method="get" onsubmit="return is_checked()">
+    <div class="feedback">
+        <p>How did our front office staff behave during your stay?</p>
+        <div>
+            <label>Excellent</label>
+            <input id="rdb1" name="behaviour" type="radio" value="excellent">
+            <label>Good</label>
+            <input id="rdb2" name="behaviour" type="radio" value="good">
+            <label>Fair</label>
+            <input id="rdb3" name="behaviour" type="radio" value="fair">
+            <label>Poor</label>
+            <input id="rdb4" name="behaviour" type="radio" value="poor">
+        </div>
+    </div>
+    <div class="feedback">
+        <p>How did you find the cleanliness of your room?</p>
+        <div>
+            <label>Excellent</label>
+            <input id="rdb5" name="clean" type="radio" value="excellent">
+            <label>Good</label>
+            <input id="rdb6" name="clean" type="radio" value="good">
+            <label>Fair</label>
+            <input id="rdb7" name="clean" type="radio" value="fair">
+            <label>Poor</label>
+            <input id="rdb8" name="clean" type="radio" value="poor">
+        </div>
+    </div>
+    <div class="feedback">
+        <p>How was house keeping behaving during your stay?</p>
+        <div>
+            <label>Excellent</label>
+            <input id="rdb9" name="stay" type="radio" value="excellent">
+            <label>Good</label>
+            <input id="rdb10" name="stay" type="radio" value="good">
+            <label>Fair</label>
+            <input id="rdb11" name="stay" type="radio" value="fair">
+            <label>Poor</label>
+            <input id="rdb12" name="stay" type="radio" value="poor">
+        </div>
+    </div>
+    <div class="feedback">
+        <p>How was the restaurant's food from our hotel?</p>
+        <div>
+            <label>Excellent</label>
+            <input id="rdb13" name="food" type="radio" value="excellent">
+            <label>Good</label>
+            <input id="rdb14" name="food" type="radio" value="good">
+            <label>Fair</label>
+            <input id="rdb15" name="food" type="radio" value="fair">
+            <label>Poor</label>
+            <input id="rdb16" name="food" type="radio" value="poor">
+        </div>
+    </div>
+    <div class="feedback">
+        <p>How would you rate our Travel Desk's staff?</p>
+        <div>
+            <label>Excellent</label>
+            <input id="rdb17" name="staff" type="radio" value="excellent">
+            <label>Good</label>
+            <input id="rdb18" name="staff" type="radio" value="good">
+            <label>Fair</label>
+            <input id="rdb19" name="staff" type="radio" value="fair">
+            <label>Poor</label>
+            <input id="rdb20" name="staff" type="radio" value="poor">
+        </div>
+    </div>
+    <div class="feedback">
+        <p>How would you rate our hotel, overall?</p>
+        <div>
+            <label>Excellent</label>
+            <input id="rdb21" name="rating" type="radio" value="excellent">
+            <label>Good</label>
+            <input id="rdb22" name="rating" type="radio" value="good">
+            <label>Fair</label>
+            <input id="rdb23" name="rating" type="radio" value="fair">
+            <label>Poor</label>
+            <input id="rdb24" name="rating" type="radio" value="poor">
+        </div>
+    </div>
+    <div class="recomend">
+        <p>Would you recommend our hotel to other people?</p>
+
+        <label>Yes</label>
+        <input id="rdb25" name="recommend" type="radio" value="Yes">
+        <label>No</label>
+        <input id="rdb26" name="recommend" type="radio" value="No">
+    </div>
+    <p id="center"><input type="submit" value="Submit"></p>
+</form>
+
+
+    <!--form ends-->
+</div>
+<script src="feedback.js"></script>
+</body>
+</html>
